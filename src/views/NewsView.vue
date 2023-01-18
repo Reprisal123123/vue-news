@@ -1,13 +1,12 @@
 <template>
     <div>
-        <div v-for="news in newsList">
+        <div v-for="news in this.$store.state.news">
             {{ news.title }}
         </div>
     </div>
 </template>
 
 <script>
-import { fetchNewsList } from '../api/index';
 
 export default {
     data() {
@@ -17,10 +16,10 @@ export default {
     },
 
     created() {
-        
-        fetchNewsList() // new Promise를 반환
-        .then(response => this.newsList = response.data)
-        .catch(error => console.log(error))
+        this.$store.dispatch('FETCH_NEWS');
+    //     fetchNewsList() // new Promise를 반환
+    //     .then(response => this.newsList = response.data)
+    //     .catch(error => console.log(error))
     },
 }
 </script>
