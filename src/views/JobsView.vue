@@ -1,8 +1,9 @@
 <template>
     <div>
-        <div v-for="jobs in this.setJobsList">
-            {{ jobs.title }}
-        </div>
+        <p v-for="jobs in this.setJobsList">
+            <a v-bind:href="jobs.url">{{ jobs.title }}</a>
+            <small>{{ jobs.time_ago }}, {{ jobs.domain }}</small>
+        </p>
     </div>
 </template>
 

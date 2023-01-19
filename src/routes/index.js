@@ -9,7 +9,7 @@ import UserView from '../views/UserView'
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
-    mode: 'history',
+    mode: 'history', // 해시 제거
     routes : [
         {
             path: '/',
@@ -34,7 +34,7 @@ export const router = new VueRouter({
             component: ItemView,
         },
         {
-            path: '/user',
+            path: '/user/:id',
             component: UserView,
         },
     ]
