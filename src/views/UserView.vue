@@ -3,7 +3,7 @@
         <p>name : {{ userInfo.id }}</p>
         <p>karma : {{ userInfo.karma }}</p>
         <p>created : {{ userInfo.created }}</p>
-</div>
+    </div>
 </template>
 
 <script>
