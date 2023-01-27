@@ -1,0 +1,86 @@
+<template>
+    <div>
+        <ul class="news-list">
+            <li v-for="news in this.setState" class="post">
+                <!-- 포인트 영역 -->
+                <div class="points">
+                    {{ news.points }}
+                </div>
+                <!-- 기타 정보 영역 -->
+                <div>
+                    <p class="news-title">
+                        <a v-bind:href="news.url">
+                            {{ news.title }}
+                        </a>
+                    </p>
+                    <small class="link-text">
+                        by
+                        <router-link v-bind:to="`/user/${news.user}`" class="link-text">{{ news.user }}</router-link>
+                    </small>
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<script>
+export default {
+    created() {
+        // this.$store.dispatch(`FETCH_${this.item}`);
+        const name = this.$route.name;
+        if(name === 'news') {
+            this.$store.dispatch('FETCH_NEWS');
+        } else if (name === 'ask') {
+            this.$store.dispatch('FETCH_ASKS');
+        } else if (name === 'jobs') {
+            this.$store.dispatch('FETCH_JOBS');
+        }
+    },
+    computed : {
+        setState() {
+            const name = this.$route.name;
+            if(name === 'news') {
+                return this.$store.state.news;
+            } else if (name === 'ask') {
+                return this.$store.state.asks;
+            } else if (name === 'jobs') {
+                return this.$store.state.jobs;
+            }
+            return 1;
+        },
+
+    }
+
+}
+</script>
+
+<style>
+    .news-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .post {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .points {
+        width: 80px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #42b883;
+    }
+
+    .news-title {
+        margin: 0;
+    }
+
+    .link-text {
+        color: #828282;
+    }
+</style>

@@ -4,7 +4,7 @@
             <router-link v-bind:to="`item/${ask.id}`">{{ ask.title }}</router-link>
             <small>{{ ask.time_ago }} by {{ ask.user }}</small>
         </p> -->
-        <ul class="asks-list">
+        <!-- <ul class="asks-list">
             <li v-for="ask in fetchedAsk" class="post">
                 <div class="points">
                     {{ ask.points }}
@@ -21,69 +21,39 @@
                     </small>
                 </div>
             </li>
-        </ul>
+        </ul> -->
+        <list-item></list-item>
     </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+// import { mapState, mapGetters } from 'vuex';
+import ListItem from '../components/ListItem.vue'
 
 export default {
-    data() {
-        return {
-            askList: [],
-        }
-    },
-    computed: {
-        // ask() {
-        //     // return this.$store.state.ask;
-        // }
-        // ...mapState({
-        //     asks: state => state.asks
-        // }),
-        // ...mapGetters({
-        //     asks : 'fetchedAsk'
-        // })
-        ...mapGetters(['fetchedAsk'])
-    },
+    // computed: {
+    //     // ask() {
+    //     //     // return this.$store.state.ask;
+    //     // }
+    //     // ...mapState({
+    //     //     asks: state => state.asks
+    //     // }),
+    //     // ...mapGetters({
+    //     //     asks : 'fetchedAsk'
+    //     // })
+    //     ...mapGetters(['fetchedAsk'])
+    // },
 
     // 보통 데이터를 가져올 때는 created나 mounted에서 함
-    created() {
-        this.$store.dispatch('FETCH_ASKS');
-        // fetchAskList().
-        // then(response => this.askList = response.data)
-        // .catch(error => console.log(error));
+    // created() {
+    //     this.$store.dispatch('FETCH_ASKS');
+    // }
+    components : {
+        ListItem,
     }
 }
 </script>
 
 <style scoped>
-    .asks-list {
-        margin: 0;
-        padding: 0;
-    }
 
-    .post {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #eee;
-    }
-
-    .points {
-        width: 80px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #42b883;
-    }
-
-    .ask-title {
-        margin: 0;
-    }
-
-    .link-text {
-        color: #828282;
-    }
 </style>
