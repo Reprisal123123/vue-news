@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul class="jobs-list">
+        <!-- <ul class="jobs-list">
             <li v-for="jobs in this.setJobsList" class="post">
                 <div class="points">
                     {{ jobs.points || 0 }}
@@ -15,13 +15,18 @@
                     </small>
                 </div>
             </li>
-        </ul>
+        </ul> -->
+        <list-item></list-item>
     </div>
 </template>
 
 <script>
+import ListItem from '../components/ListItem.vue';
 
 export default {
+    components : {
+        ListItem,
+    },
     data() {
         return {
             jobsList : [],
