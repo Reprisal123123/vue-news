@@ -45,9 +45,9 @@ export default {
     // },
 
     // 보통 데이터를 가져올 때는 created나 mounted에서 함
-    // created() {
-    //     this.$store.dispatch('FETCH_ASKS');
-    // }
+    created() {
+        this.$store.dispatch('FETCH_ASKS');
+    },
     components : {
         ListItem,
     }

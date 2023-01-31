@@ -35,9 +35,6 @@ export default {
 
     created() {
         this.$store.dispatch('FETCH_JOBS');
-        // fetchJobsList().
-        // then(response => this.jobsList = response.data)
-        // .catch(error => console.log(error))
     },
 
     computed: {

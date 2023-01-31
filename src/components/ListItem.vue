@@ -36,15 +36,14 @@
 <script>
 export default {
     created() {
-        // this.$store.dispatch(`FETCH_${this.item}`);
-        const name = this.$route.name;
-        if(name === 'news') {
-            this.$store.dispatch('FETCH_NEWS');
-        } else if (name === 'ask') {
-            this.$store.dispatch('FETCH_ASKS');
-        } else if (name === 'jobs') {
-            this.$store.dispatch('FETCH_JOBS');
-        }
+        // const name = this.$route.name;
+        // if(name === 'news') {
+        //     this.$store.dispatch('FETCH_NEWS');
+        // } else if (name === 'ask') {
+        //     this.$store.dispatch('FETCH_ASKS');
+        // } else if (name === 'jobs') {
+        //     this.$store.dispatch('FETCH_JOBS');
+        // }
     },
     computed : {
         setState() {
