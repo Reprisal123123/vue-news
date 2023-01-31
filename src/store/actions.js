@@ -1,5 +1,6 @@
 import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchItemInfo } from '../api/index';
 
+
 export default {
     FETCH_NEWS(context) {
         fetchNewsList()
