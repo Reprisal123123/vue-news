@@ -44,18 +44,20 @@ export default {
         // } else if (name === 'jobs') {
         //     this.$store.dispatch('FETCH_JOBS');
         // }
+        
     },
     computed : {
         setState() {
-            const name = this.$route.name;
-            if(name === 'news') {
-                return this.$store.state.news;
-            } else if (name === 'ask') {
-                return this.$store.state.asks;
-            } else if (name === 'jobs') {
-                return this.$store.state.jobs;
-            }
-            return 1;
+            // const name = this.$route.name;
+            // if(name === 'news') {
+            //     return this.$store.state.news;
+            // } else if (name === 'ask') {
+            //     return this.$store.state.asks;
+            // } else if (name === 'jobs') {
+            //     return this.$store.state.jobs;
+            // }
+            // return 1;
+            return this.$store.state.list;
         },
 
     }
