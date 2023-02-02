@@ -29,7 +29,8 @@
 <script>
 // import { mapState, mapGetters } from 'vuex';
 import ListItem from '../components/ListItem.vue'
-import bus from '../utils/bus'
+// import bus from '../utils/bus'
+import ListMixin from '@/mixins/ListMixin';
 
 export default {
     // computed: {
@@ -46,19 +47,20 @@ export default {
     // },
 
     // 보통 데이터를 가져올 때는 created나 mounted에서 함
-    created() {
-        bus.$emit('start:spinner');
-        setTimeout(() => {
-            this.$store.dispatch('FETCH_ASKS')
-            .then(() => {
-                bus.$emit('end:spinner');
-            })
-            .catch(err => console.log(err));
-        }, 3000);
-    },
+    // created() {
+    //     bus.$emit('start:spinner');
+    //     setTimeout(() => {
+    //         this.$store.dispatch('FETCH_ASKS')
+    //         .then(() => {
+    //             bus.$emit('end:spinner');
+    //         })
+    //         .catch(err => console.log(err));
+    //     }, 3000);
+    // },
     components : {
         ListItem,
-    }
+    },
+    mixins: [ListMixin],
 }
 </script>
 

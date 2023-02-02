@@ -22,12 +22,14 @@
 
 <script>
 import ListItem from '../components/ListItem.vue';
-import bus from '../utils/bus'
+// import bus from '../utils/bus'
+import ListMixin from '@/mixins/ListMixin';
 
 export default {
     components : {
         ListItem,
     },
+    mixins : [ListMixin],
     data() {
         return {
             jobsList : [],
@@ -35,14 +37,14 @@ export default {
     },
 
     created() {
-        bus.$emit('start:spinner');
-        setTimeout(() => {
-            this.$store.dispatch('FETCH_JOBS')
-            .then(() => {
-                bus.$emit('end:spinner');
-            })
-            .catch(err => console.log(err));
-        }, 3000);
+        // bus.$emit('start:spinner');
+        // setTimeout(() => {
+        //     this.$store.dispatch('FETCH_JOBS')
+        //     .then(() => {
+        //         bus.$emit('end:spinner');
+        //     })
+        //     .catch(err => console.log(err));
+        // }, 3000);
     },
 
     computed: {
