@@ -16,9 +16,14 @@ function fetchJobsList() {
     return axios.get(`${config.baseUrl}jobs/1.json`);
 }
 
-function fetchAskList() {
+async function fetchAskList() {
     // return axios.get(config.baseUrl + 'news/1.json');
-    return axios.get(`${config.baseUrl}ask/1.json`);
+    try {
+        const response = axios.get(`${config.baseUrl}ask/1.json`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // 위 3개 api를 하나로 통일
